@@ -1,4 +1,4 @@
 support
 demos
-exercices
+dexercices
 corrections
