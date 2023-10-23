@@ -1,80 +1,76 @@
-import { input } from "../tools.js";
-
 export class Morpion {
+  constructor() {
+    this.grille = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+    ];
+    this.joueurCourant = 'X';
+    this.partieGagnee = false;
+  }
 
-    constructor() {
-        this.plateau = ["","","","","","","","",""]
-        //this.pion = {ligne: 0, colonne: 0}
+  jouer(coup, ligne, colonne) {
+    if (this.partieGagnee) {
+      console.log('La partie est terminée.');
+      return;
     }
 
-    /* async jouer() {
-        let nbTour = 1;
-        let vitcoire = false
-
-        while (!vitcoire) {
-
-            if (nbTour % 2 === 0){
-                let joueur = "joueur 1"
-                let pion = true
-            } else {
-                let joueur = "joueur 2"
-                let pion = false
-            }   
-        }
-    } */
-
-    async tour() {
-
-        let nbTour = 1
-        let pion = {}
-        let joueur = ""
-        let victoire = false
-
-        while (!victoire)  {
-            if (nbTour % 2 === 0) {
-                joueur = "X"
-                
-            } else {
-                joueur = "O"
-            }
-
-            let ligne = await input("saisir la ligne: ");
-            let colonne = await input("saisir la colonne: ");
-            pion = {ligne, colonne}
-
-            console.log(pion);
-            
-            switch (pion) {
-                case {ligne: 1, colonne: 1}: 
-                    this.plateau[0] = "0"
-                case {ligne: 1, colonne: 2}:
-                    this.plateau[1] = joueur
-                case {ligne: 1, colonne: 3}:
-                    this.plateau[2] = joueur
-                case {ligne: 2, colonne: 1}:
-                    this.plateau[3] = joueur
-                case {ligne: 2, colonne: 2}:
-                    this.plateau[4] = joueur
-                case {ligne: 2, colonne: 3}:
-                    this.plateau[5] = joueur
-                case {ligne: 3, colonne: 1}:
-                    this.plateau[6] = joueur
-                case {ligne: 3, colonne: 2}:
-                    this.plateau[7] = joueur
-                case {ligne: 3, colonne: 3}:
-                    this.plateau[8] = joueur
-            }
-    
-            console.log(this.plateau);
-        }
-        
-
-
+    if (this.grille[ligne][colonne] === ' ') {
+      this.grille[ligne][colonne] = coup;
+      this.afficherGrille();
+      if (this.verifierVictoire(coup, ligne, colonne)) {
+        this.partieGagnee = true;
+        console.log(`Le joueur ${coup} a gagné !`);
+      } else {
+        this.joueurCourant = (this.joueurCourant === 'X') ? 'O' : 'X';
+      }
+    } else {
+      console.log('La case est déjà occupée. Réessayez.');
     }
+  }
 
-    async victoire() {
-        this.plateau.forEach(element => {
-            
-        });
+  verifierVictoire(coup, ligne, colonne) {
+  // Victoire en diagonale
+  if (
+    (this.grille[0][0] === coup && this.grille[1][1] === coup && this.grille[2][2] === coup) ||
+    (this.grille[0][2] === coup && this.grille[1][1] === coup && this.grille[2][0] === coup)
+  ) {
+    return true;
+  }
+
+  // Victoire horizontale ou verticale
+  for (let i = 0; i < 3; i++) {
+    if (
+      (this.grille[i][0] === coup && this.grille[i][1] === coup && this.grille[i][2] === coup) ||
+      (this.grille[0][i] === coup && this.grille[1][i] === coup && this.grille[2][i] === coup)
+    ) {
+      return true;
     }
+  }
+  
+  // Cas d'égalité
+  let estGrilleComplete = true;
+  for (let ligne of this.grille) {
+    for (let caseGrille of ligne) {
+      if (caseGrille === ' ') {
+        estGrilleComplete = false;
+        break;
+      }
+    }
+  }
+
+  if (estGrilleComplete) {
+    console.log('La partie est un match nul.');
+    return true;
+  }
+
+  return false;
+}
+
+  afficherGrille() {
+    console.log('Grille actuelle :');
+    for (let ligne of this.grille) {
+      console.log(ligne.join(' '));
+    }
+  }
 }

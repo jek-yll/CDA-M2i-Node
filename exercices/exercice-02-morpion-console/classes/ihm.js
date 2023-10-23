@@ -1,25 +1,25 @@
-import { input } from "../tools";
+import readline from "readline";
 
 export class Ihm {
-    constructor() {
-        this.plateau = [
-            {
-                c1l1: null,
-                c2l1: null,
-                c3l1: null,
-                c1l2: null,
-                c2l2: null,
-                c3l2: null,
-                c1l3: null,
-                c2l3: null,
-                c3l3: null
-            }
-        ]
-
+    constructor(morpion) {
+      this.morpion = morpion;
     }
-
-    async tour() {
-        let choix = "";
-
+  
+    async jouerCoup(ligne, colonne) {
+      this.morpion.jouer(this.morpion.joueurCourant, ligne, colonne);
     }
-}
+  }
+  
+  export function input(message) {
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+    });
+  
+    return new Promise((resolve) => {
+      rl.question(message, (answer) => {
+        rl.close();
+        resolve(answer);
+      });
+    });
+  }
