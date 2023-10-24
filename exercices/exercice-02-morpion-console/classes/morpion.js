@@ -18,7 +18,7 @@ export class Morpion {
     if (this.grille[ligne][colonne] === ' ') {
       this.grille[ligne][colonne] = coup;
       this.afficherGrille();
-      if (this.verifierVictoire(coup, ligne, colonne)) {
+      if (this.verifierVictoire(coup)) {
         this.partieGagnee = true;
         console.log(`Le joueur ${coup} a gagné !`);
       } else {
@@ -29,7 +29,7 @@ export class Morpion {
     }
   }
 
-  verifierVictoire(coup, ligne, colonne) {
+  verifierVictoire(coup) {
   // Victoire en diagonale
   if (
     (this.grille[0][0] === coup && this.grille[1][1] === coup && this.grille[2][2] === coup) ||
@@ -60,7 +60,7 @@ export class Morpion {
   }
 
   if (estGrilleComplete) {
-    console.log('La partie est un match nul.');
+    console.log('Match nul !');
     return true;
   }
 
