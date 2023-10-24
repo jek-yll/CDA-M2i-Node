@@ -1,3 +1,5 @@
+import { appendFile } from 'fs'
+
 export class Morpion {
   constructor() {
     this.grille = [
@@ -7,6 +9,7 @@ export class Morpion {
     ];
     this.joueurCourant = 'X';
     this.partieGagnee = false;
+    this.historique = "./historiqueDesParties.txt"
   }
 
   jouer(coup, ligne, colonne) {
@@ -71,6 +74,22 @@ export class Morpion {
     console.log('Grille actuelle :');
     for (let ligne of this.grille) {
       console.log(ligne.join(' '));
+     /*  let i = 0
+      while (this.partieGagnee) {
+        appendFile(this.historique, `coup n${i}`, (err) => {
+          if (err) {
+            console.error(err);
+            return
+          }
+        })
+        appendFile(this.historique, `[${ligne.join(' ')}]\n`, (err)=> {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        } )
+        i++
+      } */
     }
   }
 }

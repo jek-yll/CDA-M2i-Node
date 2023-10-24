@@ -24,7 +24,3 @@ export function input(message) {
   });
   
 }
-
-export function ecritureFichier () {
-  
-}
