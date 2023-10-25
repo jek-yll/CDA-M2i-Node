@@ -1,0 +1,150 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "products-app",
+    "dateExported": "2023-10-25T14:49:48.492Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "93e468ea-37c0-4173-b4c7-8b9ede51c604",
+            "colId": "2f3534ce-336b-40c6-a9b9-0f86f1d91e82",
+            "containerId": "",
+            "name": "allClients",
+            "url": "http://127.0.0.1:3030/clients",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-25T14:41:05.812Z",
+            "modified": "2023-10-25T14:43:51.607Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5fc39232-7ea0-4cd6-a744-6904b6f5e29e",
+            "colId": "2f3534ce-336b-40c6-a9b9-0f86f1d91e82",
+            "containerId": "",
+            "name": "allProducts",
+            "url": "http://127.0.0.1:3030/products",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-25T14:41:14.404Z",
+            "modified": "2023-10-25T14:44:06.091Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "fb0a81c7-b81c-40cf-9d0c-1da40435587e",
+            "colId": "2f3534ce-336b-40c6-a9b9-0f86f1d91e82",
+            "containerId": "",
+            "name": "allOrders",
+            "url": "http://127.0.0.1:3030/orders",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-10-25T14:41:22.268Z",
+            "modified": "2023-10-25T14:44:17.337Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a48c6146-f485-4559-a9ee-04d954c53f74",
+            "colId": "2f3534ce-336b-40c6-a9b9-0f86f1d91e82",
+            "containerId": "",
+            "name": "clientById",
+            "url": "http://127.0.0.1:3030/clients/1698243321728",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-10-25T14:41:32.508Z",
+            "modified": "2023-10-25T14:44:34.824Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "800ef595-2109-4355-b600-0924517640d4",
+            "colId": "2f3534ce-336b-40c6-a9b9-0f86f1d91e82",
+            "containerId": "",
+            "name": "orderById",
+            "url": "http://127.0.0.1:3030/orders/7bd5bdd7-172a-4ebb-8ad2-3d5dbfaa2ada",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-10-25T14:41:54.957Z",
+            "modified": "2023-10-25T14:47:00.055Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f6764966-c3c4-4f42-8988-477655b9785b",
+            "colId": "2f3534ce-336b-40c6-a9b9-0f86f1d91e82",
+            "containerId": "",
+            "name": "productById",
+            "url": "http://127.0.0.1:3030/products/1698243218832",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-10-25T14:42:15.349Z",
+            "modified": "2023-10-25T14:44:47.133Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0dc5147b-b200-4141-9bcc-886101d6f9ff",
+            "colId": "2f3534ce-336b-40c6-a9b9-0f86f1d91e82",
+            "containerId": "",
+            "name": "newOrder",
+            "url": "http://127.0.0.1:3030/orders",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2023-10-25T14:45:16.949Z",
+            "modified": "2023-10-25T14:46:26.570Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"client\": \"1698243321728\",\n  \"products\": [\"1698243192930\",\"1698243218832\"]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "62fa7c13-39da-45c6-9e25-22f60d9b90b1",
+            "colId": "2f3534ce-336b-40c6-a9b9-0f86f1d91e82",
+            "containerId": "",
+            "name": "newClient",
+            "url": "http://127.0.0.1:3030/clients",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2023-10-25T14:47:17.253Z",
+            "modified": "2023-10-25T14:48:20.497Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstname\": \"Toto\",\n  \"lastname\": \"Titi\",\n  \"phoneNumber\": \"0320000000\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "af047d23-cc53-49e6-81ef-580ccbd2f9ed",
+            "colId": "2f3534ce-336b-40c6-a9b9-0f86f1d91e82",
+            "containerId": "",
+            "name": "newProduct",
+            "url": "http://127.0.0.1:3030/products",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2023-10-25T14:48:41.652Z",
+            "modified": "2023-10-25T14:49:36.423Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"super casque\",\n  \"price\": 10,\n  \"stock\": 42\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
